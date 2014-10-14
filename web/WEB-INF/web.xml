@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>cw04</display-name>
+    <servlet>
+        <servlet-name>controller</servlet-name>
+        <servlet-class>pl.altkom.ControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>redirect</servlet-name>
+        <servlet-class>pl.altkom.RedirectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>saveClient</servlet-name>
+        <servlet-class>pl.altkom.SaveClientDataServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReadClientsDataServlet</servlet-name>
+        <servlet-class>pl.altkom.ReadClientsDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>controller</servlet-name>
+        <url-pattern>/controller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>redirect</servlet-name>
+        <url-pattern>/redirect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>saveClient</servlet-name>
+        <url-pattern>/saveClient</url-pattern>
+    </servlet-mapping>
+    <listener>
+        <listener-class>pl.altkom.SessionCounter</listener-class>
+    </listener>
+    <listener>
+        <listener-class>pl.altkom.ClientListener</listener-class>
+    </listener>
+    <servlet-mapping>
+        <servlet-name>ReadClientsDataServlet</servlet-name>
+        <url-pattern>/readClients</url-pattern>
+    </servlet-mapping>
+    <security-role>
+        <role-name>supervisor</role-name>
+    </security-role>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>Dane klientów</realm-name>
+    </login-config>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>dane klientów</web-resource-name>
+            <url-pattern>/readClients</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>supervisor</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <welcome-file-list>
+        <welcome-file>controller</welcome-file>
+    </welcome-file-list>
+</web-app>

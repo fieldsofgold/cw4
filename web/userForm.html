@@ -1,0 +1,57 @@
+<html>
+<title>Formularz klienta</title>
+<body bgcolor="lightblue">
+<center><br>
+<br>
+<h3>Rejestracja</h3>
+<br>
+<form action="saveClient" method="GET">
+<table border="0" align="center">
+	<tr>
+		<td>Imie:</td>
+		<td><input type="text" name="name"></td>
+		<td>Nazwisko:</td>
+		<td><input type="text" name="surname"></td>
+	</tr>
+	<tr>
+		<td>Region:</td>
+		<td><SELECT NAME="region">
+			<OPTION>Mazowsze
+			<OPTION>Malopolska
+			<OPTION>Slask
+			<OPTION>Podkarpacie
+			<OPTION>Wielkopolska
+			<OPTION>Pojezierze
+			<OPTION>Mazury
+			<OPTION>Roztocze
+			<OPTION>Bieszczady
+		</SELECT></td>
+		<td>Wiek: <SELECT NAME="age">
+			<OPTION>20
+			<OPTION>25
+			<OPTION>30
+			<OPTION>35
+			<OPTION>40
+			<OPTION>45
+			<OPTION>50
+			<OPTION>55
+			<OPTION>60
+		</SELECT></td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp; <input type="checkbox" name="male"
+			value="true">Mezczyzna</td>
+	</tr>
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td><input type="submit" value="Zapisz"></td>
+		<td></td>
+	</tr>
+</table>
+
+</form>
+<a href="controller">Powrot</a></center>
+</body>
+</html>
